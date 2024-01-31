@@ -1,0 +1,20 @@
+.centered-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  margin: 0;
+  background-color: #3f51b5;
+
+  h1 {
+    font-size: 1,5rem;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #c031b2;
+    box-shadow: 0 4px 6px rgba(125, 62, 242, 0.1);
+
+  }
+}

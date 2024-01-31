@@ -1,0 +1,48 @@
+<div class="centered-heading">
+  <h1>Ingrese sus datos en el Formulario</h1>
+</div>
+<div class="mb-3">
+  <app-usuario-formulario (userSubmitted)="onUserSubmitted($event)"></app-usuario-formulario>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fullName">
+    <th mat-header-cell *matHeaderCellDef>Nombre Completo </th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.nombre + ' '+  ' '  +  usuario.apellido}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Correo</th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pais">
+    <th mat-header-cell *matHeaderCellDef> Pais</th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.pais}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="roll">
+    <th mat-header-cell *matHeaderCellDef> Roll</th>
+    <td mat-cell *matCellDef="let usuario"> {{usuario.roll}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let usuario">
+      <button mat-icon-button (click)="editUser(usuario)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteUser(usuario)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

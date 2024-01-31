@@ -1,0 +1,34 @@
+<mat-drawer-container class="dashboard-container" autosize>
+
+  <!-- SIDEBAR -->
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <!-- Contenido de la barra lateral... -->
+  </mat-drawer>
+  <!-- SIDEBAR -->
+
+  <!-- CONTENIDO -->
+  <div class="example-sidenav-content">
+    <!-- TOOLBAR -->
+    <mat-toolbar color="primary">
+      <!-- Botón del menú... -->
+      <span>Menú</span>
+      <span class="example-spacer"></span>
+      <!-- Mostrar fecha y hora -->
+      <span class="current-time">{{ today | date:'medium' }}</span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Favorite">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Share">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+    <!-- TOOLBAR -->
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="p-5">
+      <app-usuarios></app-usuarios>
+    </div>
+    <!-- CONTENIDO PRINCIPAL -->
+  </div>
+  <!-- CONTENIDO -->
+</mat-drawer-container>

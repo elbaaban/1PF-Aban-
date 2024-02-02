@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscriber, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-usuario-formulario',
@@ -8,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UsuarioFormularioComponent {
   userForm: FormGroup;
+
 
   @Output()
   userSubmitted = new EventEmitter();
@@ -41,5 +43,8 @@ export class UsuarioFormularioComponent {
     this.userForm.reset();
 
   }
+
 }
+
+
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Usuario } from './models/indes';
 import { MatDialog } from '@angular/material/dialog';
+import { UsuariosService } from '../../../../core/servis/usuarios.service';
 
 
 @Component({
@@ -36,8 +37,11 @@ export class UsuariosComponent {
       roll: 'User'
     }
   ];
+  constructor (private UsuariosService: UsuariosService){
 
-  constructor(private matDialog: MatDialog) {}
+  }
+
+
 
   onUserSubmitted(ev: Usuario): void {
     this.dataSource = [...this.dataSource, ev];
@@ -53,6 +57,7 @@ export class UsuariosComponent {
       this.dataSource.splice(index, 1);
     }
   }
+
 
 
 }

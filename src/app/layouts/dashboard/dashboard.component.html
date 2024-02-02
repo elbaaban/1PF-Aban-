@@ -2,7 +2,11 @@
 
   <!-- SIDEBAR -->
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <!-- Contenido de la barra lateral... -->
+    <!-- Agregamos botones para las diferentes secciones -->
+    <button mat-button routerLink="/cursos">Cursos</button>
+    <button mat-button routerLink="/profesores">Profesores</button>
+    <button mat-button routerLink="/carreras">Carreras</button>
+    <button mat-button routerLink="/campus-virtual">Campus Virtual</button>
   </mat-drawer>
   <!-- SIDEBAR -->
 
@@ -11,7 +15,10 @@
     <!-- TOOLBAR -->
     <mat-toolbar color="primary">
       <!-- Botón del menú... -->
-      <span>Menú</span>
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
       <span class="example-spacer"></span>
       <!-- Mostrar fecha y hora -->
       <span class="current-time">{{ today | date:'medium' }}</span>
@@ -22,6 +29,9 @@
         <mat-icon>share</mat-icon>
       </button>
     </mat-toolbar>
+
+    <!-- Agregamos una segunda barra de herramientas (opcional) -->
+
     <!-- TOOLBAR -->
 
     <!-- CONTENIDO PRINCIPAL -->

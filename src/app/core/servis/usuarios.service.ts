@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 
+
+
 const ROLES_DB: string[] = ['Admin', 'user'];
 let USERS_DB: Usuario[] = [
   {
@@ -36,6 +38,10 @@ let USERS_DB: Usuario[] = [
 export class UsuariosService {
 
   constructor() {}
+
+ getUserById(id:number|string):Observable<Usuario| undefined>{
+ return of( USERS_DB.find((Usuario)=> Usuario.id==id))
+ }
 
   getRoles(): Observable<string[]> {
     return of(ROLES_DB).pipe(delay(1000)) as Observable<string[]>;  // Añade 'as Observable<string[]>'

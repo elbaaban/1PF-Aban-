@@ -10,11 +10,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { UsuariosService } from '../../../../core/servis/usuarios.service';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     UsuariosComponent,
     UsuarioFormularioComponent,
+    UserDetailComponent,
+
 
 
   ],
@@ -27,7 +31,8 @@ import { UsuariosService } from '../../../../core/servis/usuarios.service';
     MatSelectModule,
     MatButtonModule,
    ReactiveFormsModule,
-   MatIconModule
+   MatIconModule,
+   RouterModule
   ],
   exports: [UsuariosComponent],
   providers:[UsuariosService]

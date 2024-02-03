@@ -1,12 +1,23 @@
 <mat-drawer-container class="dashboard-container" autosize>
 
   <!-- SIDEBAR -->
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <!-- Agregamos botones para las diferentes secciones -->
-    <button mat-button routerLink="/cursos">Cursos</button>
-    <button mat-button routerLink="/profesores">Profesores</button>
-    <button mat-button routerLink="/carreras">Carreras</button>
-    <button mat-button routerLink="/campus-virtual">Campus Virtual</button>
+  <mat-drawer #drawer class="dashboard-sidebar" mode="side">
+    <mat-nav-list>
+
+      <a #homeLink="routerLinkActive"
+      routerLinkActive
+      [activated]="homeLink.isActive"
+       routerLink="home" mat-list-item>inicio</a>
+
+      <a a
+      #usersLink="routerLinkActive"
+      routerLinkActive
+      [activated]="usersLink.isActive"
+      routerLink="usuario" mat-list-item>usuario</a>
+      <a  (click)="logout()" mat-list-item>cerrar sesion</a>
+
+
+    </mat-nav-list>
   </mat-drawer>
   <!-- SIDEBAR -->
 
@@ -18,7 +29,7 @@
       <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>My App</span>
+      <span>Menu</span>
       <span class="example-spacer"></span>
       <!-- Mostrar fecha y hora -->
       <span class="current-time">{{ today | date:'medium' }}</span>
@@ -29,15 +40,16 @@
         <mat-icon>share</mat-icon>
       </button>
     </mat-toolbar>
-
-    <!-- Agregamos una segunda barra de herramientas (opcional) -->
-
     <!-- TOOLBAR -->
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <div class="p-5">
 
-      <app-usuarios></app-usuarios>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="p-3">
+      <router-outlet></router-outlet>
+
+    <!--<app-usuarios></app-usuarios> -->
+
     </div>
     <!-- CONTENIDO PRINCIPAL -->
   </div>

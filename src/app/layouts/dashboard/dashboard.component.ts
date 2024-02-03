@@ -1,17 +1,21 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   showFiller = false;
   today: Date = new Date(); // Inicializar la propiedad today con la fecha actual
   private intervalSubscription: Subscription | undefined;
 
-  constructor() {
+
+
+
+  constructor(private router: Router, private route: ActivatedRoute) {
     // Asignar un valor a intervalSubscription
     this.intervalSubscription = undefined;
   }
@@ -28,5 +32,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     if (this.intervalSubscription) {
       this.intervalSubscription.unsubscribe();
     }
+  }
+
+  logout(): void {
+    localStorage.removeItem('access-token')
+    this.router.navigate(['auth', 'login'] );
+
   }
 }

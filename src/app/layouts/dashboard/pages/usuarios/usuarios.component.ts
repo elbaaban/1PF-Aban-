@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UsuariosService } from '../../../../core/servis/usuarios.service';
 import { LoadingService } from '../../../../core/servis/loadig.service';
 import { forkJoin, Subscriber } from 'rxjs';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
@@ -24,8 +25,11 @@ export class UsuariosComponent implements OnInit {
 
   constructor(
     private UsuariosService: UsuariosService,
-    private LoadingService: LoadingService
-  ) {}
+    private LoadingService: LoadingService,
+    private route : ActivatedRoute
+  ) {
+    console.log(this.route.snapshot.queryParams)
+  }
 
   ngOnInit(): void {
     this.getPageData();

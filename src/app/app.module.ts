@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 import { registerLocaleData } from '@angular/common';
@@ -23,7 +24,8 @@ registerLocaleData(localeEsAR, 'es-AR');
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DashboardModule
+    DashboardModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [

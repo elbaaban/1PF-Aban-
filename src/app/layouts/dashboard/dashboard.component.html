@@ -9,11 +9,19 @@
       [activated]="homeLink.isActive"
        routerLink="home" mat-list-item>inicio</a>
 
-      <a a
+      <a
       #usersLink="routerLinkActive"
       routerLinkActive
       [activated]="usersLink.isActive"
       routerLink="usuario" mat-list-item>usuario</a>
+      <a
+      #AlumnosLink="routerLinkActive"
+      routerLinkActive
+      [activated]="AlumnosLink.isActive"
+      routerLink="Alumnos" mat-list-item>Alumnos</a>
+
+
+
       <a  (click)="logout()" mat-list-item>cerrar sesion</a>
 
 

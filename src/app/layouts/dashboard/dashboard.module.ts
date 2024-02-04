@@ -11,7 +11,7 @@ import { CategoriesModule } from './pages/categories/categories.module';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { UserDetailComponent } from './pages/usuarios/pages/user-detail/user-detail.component';
 
 @NgModule({
@@ -33,15 +33,20 @@ import { UserDetailComponent } from './pages/usuarios/pages/user-detail/user-det
       {
         path: 'usuario',
         component: UsuariosComponent,
-
+      },
+      {
+        path: 'Alumnos',
+        loadChildren: () =>
+          import('./pages/alumnos/alumnos.module').then((m) => m.AlumnosModule),
       },
       {
         path: 'usuario/:id',
-        component:UserDetailComponent
+        component: UserDetailComponent,
       },
+
       {
         path: '**',
-        redirectTo: 'home'
+        redirectTo: 'home',
       },
     ]),
   ],

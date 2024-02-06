@@ -10,6 +10,7 @@ import { Alumno } from '../../models';
   styleUrls: ['./alumno-dialog.component.scss'], // Corrige el nombre de la propiedad
 })
 export class AlumnoDialogComponent {
+  dialogClosed = false;
   alumnoForm: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -17,11 +18,21 @@ export class AlumnoDialogComponent {
     @Inject (MAT_DIALOG_DATA)private editingAlumno?: Alumno,
   ) {
     this.alumnoForm = this.fb.group({
-      name: this.fb.control(''),
+      nombre: this.fb.control(''),
+      cursos: this.fb.control(''),
       createdAt: this.fb.control(''),
     });
+
+    if(editingAlumno){
+      this.alumnoForm.patchValue(editingAlumno);
+    }
   }
+  onCancel(): void {
+    this.dialogRef.close();
+  }
+
   onSave(): void {
     this.dialogRef.close(this.alumnoForm.value);
   }
+
 }

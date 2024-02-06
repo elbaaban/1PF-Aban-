@@ -4,7 +4,6 @@ import { Alumno } from './models';
 import { MatDialog } from '@angular/material/dialog';
 import { AlumnoDialogComponent } from './components/alumno-dialog/alumno-dialog.component';
 
-
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
@@ -31,19 +30,28 @@ export class AlumnosComponent {
       .afterClosed()
       .subscribe({
         next: (result) => {
-          if(result){
+          if (result) {
             this.alumnosServicio.createAlumno(result).subscribe({
-              next: (alumnos)=>(this.alumnos=this.alumnos),
+              next:(alumnos) =>(this.alumnos=alumnos),
             });
           }
-        }
+        },
       });
   }
-onEdit(Alumno: Alumno){
-  this.dialog.open(AlumnoDialogComponent,{
-    data:Alumno,
-  })
-}
+  onEdit(alumno: Alumno) {
+    this.dialog.open(AlumnoDialogComponent, {
+      data: alumno,
+
+    }).afterClosed().subscribe({
+      next:(result) =>{
+        if(result){
+          this.alumnosServicio.UpDateAlumnoById(alumno.id, result).subscribe({
+            next:(alumnos) => (this.alumnos=alumnos),
+          })
+        }
+      }
+    })
+  }
   onDelete(id: number) {
     this.alumnosServicio.deleteAlumnoById(id).subscribe({
       next: (alumnos) => {

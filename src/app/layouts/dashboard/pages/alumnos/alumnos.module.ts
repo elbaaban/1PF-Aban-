@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { AlumnoDialogModule } from './components/alumno-dialog/alumno-dialog.module';
 import { AlumnosRoutingModule } from './alumnos-routing.module';
 import { AlumnosComponent } from './alumnos.component';
 import { MatTableModule } from '@angular/material/table';

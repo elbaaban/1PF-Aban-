@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
+
 import { registerLocaleData } from '@angular/common';
 import localeEsAR from '@angular/common/locales/es-AR';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
@@ -27,7 +28,7 @@ registerLocaleData(localeEsAR, 'es-AR');
     BrowserAnimationsModule,
     DashboardModule,
     MatProgressSpinnerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
 
   ],
   providers: [

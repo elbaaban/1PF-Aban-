@@ -2,42 +2,22 @@ import { Injectable } from '@angular/core';
 import { Usuario } from './../../layouts/dashboard/pages/usuarios/models/indes';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { AlertsService } from './alerts.service';
+import { HttpClient } from '@angular/common/http';
 
 
 
 
-const ROLES_DB: string[] = ['Admin', 'user'];
+const ROLES_DB: string[] = ['ADMIN', 'USER'];
+
 let USERS_DB: Usuario[] = [
-  {
-    id: 1,
-    nombre: 'Elba',
-    apellido: 'Aban',
-    email: 'elbajonas16@gmail.com',
-    pais: 'Argentina',
-    roll: 'Admin'
-  },
-  {
-    id: 2,
-    nombre: 'Cari',
-    apellido: 'Aban',
-    email: 'carito@gmail.com',
-    pais: 'Argentina',
-    roll: 'Admin'
-  },
-  {
-    id: 3,
-    nombre: 'Luis',
-    apellido: 'Aban',
-    email: 'luis@gmail.com',
-    pais: 'Argentina',
-    roll: 'User'
-  }
+
 ];
 
 @Injectable()
 export class UsuariosService {
 
-  constructor() {}
+  constructor(private AlertsService: AlertsService, private httpsclient: HttpClient) {}
 
  getUserById(id:number|string):Observable<Usuario| undefined>{
  return of( USERS_DB.find((Usuario)=> Usuario.id==id))
@@ -48,7 +28,10 @@ export class UsuariosService {
   }
 
   getUsers() {
-    return of(USERS_DB).pipe(delay(1000)) as Observable<Usuario[]>;  // Añade 'as Observable<Usuario[]>'
+
+   //return of(USERS_DB).pipe(delay(1000)) as Observable<Usuario[]>;
+   return this.httpsclient.get<Usuario[]>('http://localhost:3000/users') // Añade 'as Observable<Usuario[]>'
+
   }
   create(payload: Usuario){
      USERS_DB.push(payload);

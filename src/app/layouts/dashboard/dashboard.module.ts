@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { MatListModule } from '@angular/material/list';
 import { UserDetailComponent } from './pages/usuarios/pages/user-detail/user-detail.component';
+import { adminGuard } from '../../core/guards/admin.guard';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -32,15 +33,21 @@ import { UserDetailComponent } from './pages/usuarios/pages/user-detail/user-det
       },
       {
         path: 'usuario',
-        component: UsuariosComponent,
+        canActivate:[adminGuard],
+        loadChildren: () =>
+          import('./pages/usuarios/usuarios.module').then(
+            (m) => m.UsuariosModule
+          ),
       },
       {
         path: 'Alumnos',
+        canActivate:[adminGuard],
         loadChildren: () =>
           import('./pages/alumnos/alumnos.module').then((m) => m.AlumnosModule),
       },
       {
         path: 'usuario/:id',
+        canActivate:[adminGuard],
         component: UserDetailComponent,
       },
 

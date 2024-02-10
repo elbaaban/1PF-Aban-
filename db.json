@@ -1,0 +1,35 @@
+{
+  "users":[
+    {
+      "id": 1,
+      "nombre": "Elba",
+      "apellido": "Aban",
+      "email": "elbajonas16@gmail.com",
+      "pais": "Argentina",
+      "roll": "ADMIN",
+      "password": "secreto"
+    },
+    {
+      "id": 2,
+      "nombre": "Cari",
+      "apellido": "Aban",
+      "email": "carito@gmail.com",
+      "pais": "Argentina",
+      "roll": "USER",
+      "password": "secreto"
+    },
+    {
+      "id": 3,
+      "nombre": "Luis",
+      "apellido": "Aban",
+      "email": "luis@gmail.com",
+      "pais": "Argentina",
+      "roll": "USER",
+      "password": "secreto"
+    }
+  ],
+  "courses":[
+
+  ]
+
+}

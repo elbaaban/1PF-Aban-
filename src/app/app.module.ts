@@ -12,6 +12,7 @@ import { registerLocaleData } from '@angular/common';
 import localeEsAR from '@angular/common/locales/es-AR';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 // Registra los datos de localización para español de Argentina
 registerLocaleData(localeEsAR, 'es-AR');
@@ -29,6 +30,7 @@ registerLocaleData(localeEsAR, 'es-AR');
     DashboardModule,
     MatProgressSpinnerModule,
     MatNativeDateModule,
+    HttpClientModule
 
   ],
   providers: [

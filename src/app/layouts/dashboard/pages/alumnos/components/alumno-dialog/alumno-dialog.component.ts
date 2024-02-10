@@ -1,6 +1,6 @@
 // alumno-dialog.component.ts
 import { Component, Inject, inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Alumno } from '../../models';
 
@@ -18,9 +18,9 @@ export class AlumnoDialogComponent {
     @Inject (MAT_DIALOG_DATA)private editingAlumno?: Alumno,
   ) {
     this.alumnoForm = this.fb.group({
-      nombre: this.fb.control(''),
-      cursos: this.fb.control(''),
-      createdAt: this.fb.control(''),
+      nombre: this.fb.control('',[Validators.required,]),
+      cursos: this.fb.control('',[Validators.required]),
+      createdAt: this.fb.control('',[Validators.required]),
     });
 
     if(editingAlumno){

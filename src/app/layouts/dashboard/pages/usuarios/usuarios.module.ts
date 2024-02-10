@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { UsuariosService } from '../../../../core/servis/usuarios.service';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { RouterModule } from '@angular/router';
+import { UsuariosRoutingModule } from './usuarios-routing.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
    ReactiveFormsModule,
    MatIconModule,
-   RouterModule
+   RouterModule, UsuariosRoutingModule
   ],
   exports: [UsuariosComponent],
   providers:[UsuariosService]
